@@ -1,0 +1,47 @@
+ public void delete() {
+            while (deleteButton == 1) {
+
+                try {
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "test", "password");
+                    Statement stmt = (Statement) con.createStatement();
+
+                    // Deleting from database
+                    String SQL = ("DELETE from Item WHERE name = '" + name + "'");
+
+
+                    System.out.println("One User Successfully Deleted");
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        }
+
+        public void search() {
+            while (searchButton == 1) {
+                try {
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "test", "password");
+                    Statement stmt = (Statement) con.createStatement();
+
+                    System.out.println("Search..?");
+                    String name = input.next();
+
+                    String SQL = ("SELECT * FROM Item WHERE name='" + name + "'");
+                    ResultSet rs = stmt.executeQuery(SQL);
+
+                    while (rs.next()) {
+                        System.out.println(rs.getString());
+                    }
+                } catch (Exception e) {
+                    System.out.println("ERROR");
+                }
+            }
+             public void edit() {
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "test", "password");
+            Statement stmt = (Statement) con.createStatement();
+
+        }catch{
+
+        }
+    }
