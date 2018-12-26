@@ -6,13 +6,13 @@ private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
                     Statement stmt = (Statement) con.createStatement();
 
                     // Deleting from database
-                    String SQL = ("DELETE from Item WHERE name = '" + name + "'");
+                    String SQL = ("DELETE selectedRow from selectedTable WHERE name = '" + jTextField1.getText() + "'");
 
 
                     System.out.println("One Item Successfully Deleted");
                     con.close();
                 } catch (Exception e) {
-                    System.out.println(e);
+                    System.out.println("ERROR");
                 }
             }
         }
@@ -23,9 +23,9 @@ private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
                     Statement stmt = (Statement) con.createStatement();
 
                     System.out.println("Search..?");
-                    String name = input.next();
+                  
 
-                    String SQL = ("SELECT * FROM Item WHERE name='" + name + "'");
+                    String SQL = ("SELECT * FROM Item WHERE name='" +jTextField1.getText()+ "'");
                     ResultSet rs = stmt.executeQuery(SQL);
 
                     while (rs.next()) {
@@ -46,4 +46,17 @@ private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
         }
         }
+        
+        
+        private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "test", "password");
+            Statement stmt = (Statement) con.createStatement();
+        
+            String SQL = ("INSERT INTO selectedTable + jTextField1.getText() +" )
+            
+            stmt.executeUpdate(insert);
+            }catch(Exception e) {
+            }
+    }//GEN-LAST:event_addButtonActi
 
