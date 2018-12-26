@@ -1,4 +1,6 @@
-package javaapplication5;
+
+package javaapplication3;
+
 import java.awt.Component;
 import java.awt.Toolkit;
 import java.util.Enumeration;
@@ -8,12 +10,11 @@ import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
- * @author Emir and Canberk
+ * @authors Canberk and Emir
  */
 public class NewJFrame extends javax.swing.JFrame {
-    
-    
-    
+
+    private Component frame;
 
     /**
      * Creates new form NewJFrame
@@ -21,8 +22,6 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
         setIcon();
-        
-        
     }
 
     /**
@@ -41,8 +40,8 @@ public class NewJFrame extends javax.swing.JFrame {
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         searchButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 153));
@@ -53,14 +52,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jTree1.setEditable(true);
         jScrollPane1.setViewportView(jTree1);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         addButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication5/plusicon.png"))); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/plusicon.png"))); // NOI18N
         addButton.setText("ADD");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +62,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         editButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication5/edit.png"))); // NOI18N
+        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/edit.png"))); // NOI18N
         editButton.setText("EDIT");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +71,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         deleteButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication5/delete.png"))); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/delete.png"))); // NOI18N
         deleteButton.setText("DELETE");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +80,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         searchButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication5/search.png"))); // NOI18N
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/search.png"))); // NOI18N
         searchButton.setText("SEARCH");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,55 +88,56 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication5/arcatalogg.png"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/arcatalogg.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 277, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(searchButton))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
+                            .addComponent(jTextField1))))
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(53, Short.MAX_VALUE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(addButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -153,13 +147,14 @@ public class NewJFrame extends javax.swing.JFrame {
  DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
         DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(jTextField1.getText());
         selectedNode.add(newNode);
-        Component frame = null;
-        JOptionPane.showMessageDialog(frame, "New catalog added!");
-
         
         // reload jtree model
         DefaultTreeModel model = (DefaultTreeModel)jTree1.getModel();
-        model.reload();        
+        model.reload();  
+        this.getClass().getClassLoader().getResourceAsStream("plusicon.png");
+        JOptionPane.showMessageDialog(frame,newNode+" added!");
+
+
     }                                         
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -169,6 +164,8 @@ public class NewJFrame extends javax.swing.JFrame {
         // reload jtree model
         DefaultTreeModel model = (DefaultTreeModel)jTree1.getModel();
         model.reload();        
+        this.getClass().getClassLoader().getResourceAsStream("edit.png");
+        JOptionPane.showMessageDialog(frame,"Category edited!");
     }                                          
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -181,6 +178,7 @@ public class NewJFrame extends javax.swing.JFrame {
             model.removeNodeFromParent(selectedNode);
 
             model.reload();
+            this.getClass().getClassLoader().getResourceAsStream("delete.png");
         }        
     }                                            
 
@@ -190,15 +188,15 @@ public class NewJFrame extends javax.swing.JFrame {
       DefaultMutableTreeNode node =
         (DefaultMutableTreeNode)nodeEnumeration.nextElement();
       String found = (String)node.getUserObject();
-     if( search.equals( found ) ) {
-
+      if( search.equals( found ) ) {
+         
           jLabel1.setText("Item has found on "+ node.getParent()+" at "+ (node.getParent().getIndex(node)+1)+"st.");
-
+          
        return node;
-
+        
       } 
       else{
-         jLabel1.setText("Item is not found.");
+         jLabel1.setText("Item is not found."); 
       }
       
     }
@@ -207,13 +205,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         String a=jTextField1.getText();
         DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
+        this.getClass().getClassLoader().getResourceAsStream("search.png");
         
         findNode(selectedNode,a);
     }                                            
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
 
     /**
      * @param args the command line arguments
@@ -263,6 +258,6 @@ public class NewJFrame extends javax.swing.JFrame {
     // End of variables declaration                   
 
     private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logoarcatalog.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logoarcatalog.PNG")));
     }
 }
