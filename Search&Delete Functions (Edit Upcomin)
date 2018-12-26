@@ -1,4 +1,4 @@
- public void delete() {
+private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
             while (deleteButton == 1) {
 
                 try {
@@ -9,7 +9,7 @@
                     String SQL = ("DELETE from Item WHERE name = '" + name + "'");
 
 
-                    System.out.println("One User Successfully Deleted");
+                    System.out.println("One Item Successfully Deleted");
                     con.close();
                 } catch (Exception e) {
                     System.out.println(e);
@@ -17,8 +17,7 @@
             }
         }
 
-        public void search() {
-            while (searchButton == 1) {
+        private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "test", "password");
                     Statement stmt = (Statement) con.createStatement();
@@ -35,13 +34,16 @@
                 } catch (Exception e) {
                     System.out.println("ERROR");
                 }
-            }
-             public void edit() {
+          }
+          
+          private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "test", "password");
             Statement stmt = (Statement) con.createStatement();
+           String SQL = ("UPDATE 
 
         }catch{
 
         }
-    }
+        }
+
